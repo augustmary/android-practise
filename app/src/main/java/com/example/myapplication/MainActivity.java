@@ -3,36 +3,39 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private TextView textView;
-    private Button button;
+    private EditText login;
+    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.textView);
-        button = (Button) findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                textView.setText("See you!");
-            }
-        });
-    }
-
-    public void sayHello(View view){
-        textView.setText("Hello!");
+        login = (EditText) findViewById(R.id.login);
+        password = (EditText) findViewById(R.id.password);
 
     }
-    public void goToNewActivity(View view){
-        Intent intent = new Intent(this, LastActivity.class);
-    startActivity(intent);
+
+    public void sendData(View view){
+        Intent intent= new Intent(this, LastActivity.class);
+
+        intent.putExtra("login", login.getText().toString());
+        intent.putExtra("password", password.getText().toString());
+
+        startActivity(intent);
     }
+
+    public void onShow(View view){
+        Toast toast = Toast.makeText(this, "Toast message", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP, 20, 0);
+        toast.show();
+    }
+
 }
