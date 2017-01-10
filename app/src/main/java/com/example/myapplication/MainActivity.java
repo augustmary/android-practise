@@ -2,8 +2,8 @@ package com.example.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,10 +32,15 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    public void onShow(View view){
-        Toast toast = Toast.makeText(this, "Toast message", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP, 20, 0);
-        toast.show();
+
+    public void onPosition(View view){
+        Configuration configuration = getResources().getConfiguration();
+        if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+            Toast.makeText(this, "Portrait orientation", Toast.LENGTH_SHORT).show();
+        }
+        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            Toast.makeText(this, "Landscape orientation", Toast.LENGTH_SHORT).show();
+        }
     }
 
 }
