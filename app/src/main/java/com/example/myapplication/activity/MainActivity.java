@@ -1,8 +1,10 @@
 package com.example.myapplication.activity;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,5 +61,32 @@ public class MainActivity extends Activity {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void onAlertClick(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Some question")
+                .setMessage("Are you sure?")
+                .setCancelable(true)
+                .setIcon(R.drawable.ic_launcher)
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(),"You rejected!", Toast.LENGTH_SHORT).show();
+                    }
+                })
+        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(),"You agreed!", Toast.LENGTH_SHORT).show();
+            }
+        })
+        .setOnCancelListener(new DialogInterface.OnCancelListener(){
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                Toast.makeText(getApplicationContext(),"You canceled!", Toast.LENGTH_SHORT).show();            }
+        } );
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }
