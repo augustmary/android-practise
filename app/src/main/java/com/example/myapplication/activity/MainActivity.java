@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -98,5 +100,33 @@ public class MainActivity extends Activity {
     public void startLesson18(View view){
         Intent intent =  new Intent(this, Lesson18Activity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_items, menu);
+        return true;
+    }
+
+    public void onAuthor(MenuItem item){
+        Toast.makeText(this, "Author chosen", Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.settings:
+                Toast toast = Toast.makeText(this, "Settings chosen", Toast.LENGTH_SHORT);
+                toast.setGravity(0,1,1);
+                toast.show();
+                return true;
+//            case R.id.author:
+//                Toast.makeText(this, "Author chosen", Toast.LENGTH_SHORT);
+//                return true;
+            case R.id.book:
+                Toast.makeText(this, "Book chosen", Toast.LENGTH_SHORT).show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
