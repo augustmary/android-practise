@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
@@ -155,6 +156,15 @@ public class MainActivity extends Activity {
                 .setProgress(100, 20, true);
 
         Notification notification = builder.build();
+       // notification.defaults = Notification.DEFAULT_SOUND|Notification.DEFAULT_LIGHTS|Notification.DEFAULT_VIBRATE;
+      //  long[] vibrate = new long[]{1500, 1000, 1500, 1000};
+       // notification.vibrate = vibrate;
+        notification.sound = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.bass_drum);
+        notification.flags = notification.flags|Notification.FLAG_ONGOING_EVENT;
         nm.notify(NOTIFICATION_ID, notification);
+    }
+    public void cancelNotification (View view){
+        nm.cancel(NOTIFICATION_ID);
+
     }
 }
