@@ -1,8 +1,13 @@
 package com.example.myapplication.activity;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
@@ -16,6 +21,8 @@ import com.example.myapplication.util.RequestCode;
 public class MainActivity extends Activity {
     private TextView textName;
     private TextView textLang;
+    private NotificationManager nm;
+    private final int NOTIFICATION_ID = 127;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         textName = (TextView) findViewById(R.id.textName);
         textLang = (TextView) findViewById(R.id.textLang);
+        nm = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
     }
 
@@ -128,5 +136,25 @@ public class MainActivity extends Activity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showNotification(View view){
+        Notification.Builder builder = new Notification.Builder(this);
+        Intent intent = new Intent(this, NotificationActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        builder.setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_launcher))
+                .setTicker("Hey!")
+                .setWhen(
+                        System.currentTimeMillis()
+                )
+                .setAutoCancel(true)
+                .setContentTitle("Notification title!")
+                .setContentText("Press to know a secret")
+                .setProgress(100, 20, true);
+
+        Notification notification = builder.build();
+        nm.notify(NOTIFICATION_ID, notification);
     }
 }
