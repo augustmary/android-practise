@@ -89,4 +89,8 @@ public class MainActivity extends Activity {
         AlertDialog alert = builder.create();
         alert.show();
     }
+    public void startLesson17(View view){
+        Intent intent =  new Intent(this, Lesson17Activity.class);
+        startActivity(intent);
+    }
 }
