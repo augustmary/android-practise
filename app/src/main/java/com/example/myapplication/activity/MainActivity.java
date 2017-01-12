@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.fragments.FragmentsActivity;
 import com.example.myapplication.util.RequestCode;
 
 public class MainActivity extends Activity {
@@ -159,12 +160,18 @@ public class MainActivity extends Activity {
        // notification.defaults = Notification.DEFAULT_SOUND|Notification.DEFAULT_LIGHTS|Notification.DEFAULT_VIBRATE;
       //  long[] vibrate = new long[]{1500, 1000, 1500, 1000};
        // notification.vibrate = vibrate;
-        notification.sound = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.bass_drum);
+        notification.sound = Uri.parse("android.resource://"+getPackageName()+"/"+R.raw.clap);
         notification.flags = notification.flags|Notification.FLAG_ONGOING_EVENT;
         nm.notify(NOTIFICATION_ID, notification);
     }
+
     public void cancelNotification (View view){
         nm.cancel(NOTIFICATION_ID);
 
+    }
+
+    public void exampleWithFragments(View view){
+        Intent intent = new Intent(this, FragmentsActivity.class);
+        startActivity(intent);
     }
 }
