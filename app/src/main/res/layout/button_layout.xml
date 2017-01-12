@@ -3,11 +3,15 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/put_some_text"/>
     <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Show picture 1"
-            android:id="@+id/btnshowpic1"
+            android:text="Transmit data to other fragment"
+            android:id="@+id/btnTransmit"
             android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"/>
@@ -15,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Show picture 2"
-            android:id="@+id/btnshowpic2" android:layout_below="@+id/btnshowpic1" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" android:layout_alignRight="@+id/btnshowpic1"
-            android:layout_alignEnd="@+id/btnshowpic1"/>
+            android:id="@+id/btnshowpic2" android:layout_below="@+id/btnTransmit" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" android:layout_alignRight="@+id/btnTransmit"
+            android:layout_alignEnd="@+id/btnTransmit"/>
 </LinearLayout>
