@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.myapplication.R;
+import com.example.myapplication.activity.async.ProgressBarExample;
 import com.example.myapplication.activity.fragments.FragmentsActivity;
 import com.example.myapplication.util.RequestCode;
 
@@ -172,6 +173,10 @@ public class MainActivity extends Activity {
 
     public void exampleWithFragments(View view){
         Intent intent = new Intent(this, FragmentsActivity.class);
+        startActivity(intent);
+    }
+    public void showProgressBarExample(View view){
+        Intent intent = new Intent(this, ProgressBarExample.class);
         startActivity(intent);
     }
 }
