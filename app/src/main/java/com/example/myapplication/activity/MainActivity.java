@@ -167,7 +167,6 @@ public class MainActivity extends Activity {
 
     public void cancelNotification (View view){
         nm.cancel(NOTIFICATION_ID);
-
     }
 
     public void exampleWithFragments(View view){
