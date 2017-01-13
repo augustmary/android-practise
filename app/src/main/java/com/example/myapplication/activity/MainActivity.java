@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.myapplication.R;
+import com.example.myapplication.Services.MyFirstService;
 import com.example.myapplication.activity.async.ProgressBarExample;
 import com.example.myapplication.activity.fragments.FragmentsActivity;
 import com.example.myapplication.util.RequestCode;
@@ -30,15 +31,13 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
         textName = (TextView) findViewById(R.id.textName);
         textLang = (TextView) findViewById(R.id.textLang);
         nm = (NotificationManager)getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-
     }
-
-
-
 
     public void onShow(View view){
        Intent intent;
@@ -178,5 +177,14 @@ public class MainActivity extends Activity {
     public void showProgressBarExample(View view){
         Intent intent = new Intent(this, ProgressBarExample.class);
         startActivity(intent);
+    }
+
+    // SERVICES
+    public void onStartService(View view){
+        startService(new Intent(this, MyFirstService.class));
+    }
+
+    public void onStopService(View view){
+        stopService(new Intent(this, MyFirstService.class));
     }
 }
