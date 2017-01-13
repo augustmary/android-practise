@@ -24,10 +24,10 @@ public class ProgressBarExample extends Activity {
         setContentView(R.layout.activity_progress_bar_example);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         textView = (TextView) findViewById(R.id.textProgress);
-        asyncTask = new AsyncTaskLes28();
+        asyncTask = AsyncTaskLes28.getInstance(getApplicationContext());
     }
     public void onclickStartProcess(View view){
-        new MyAsyncTask().execute();
+        //new MyAsyncTask().execute();
 
     }
     class MyAsyncTask extends AsyncTask<Void, Integer, Void>{
