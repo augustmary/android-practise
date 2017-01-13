@@ -30,4 +30,34 @@
             android:onClick="onclickStartProcess"
             android:id="@+id/button9" android:layout_below="@+id/textProgress" android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start"
+            android:id="@+id/buttonStartLes28"
+            android:onClick="onShowMessage"
+            android:layout_marginTop="99dp" android:layout_below="@+id/button9" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Lesson 28"
+            android:id="@+id/textView9" android:layout_alignBottom="@+id/buttonStartLes28"
+            android:layout_alignParentLeft="true" android:layout_alignParentStart="true"
+            android:layout_marginBottom="42dp"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:onClick="onCancelTask"
+            android:id="@+id/btnCancelTask" android:layout_alignTop="@+id/buttonStartLes28"
+            android:layout_toRightOf="@+id/buttonStartLes28" android:layout_toEndOf="@+id/buttonStartLes28"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:onClick="onStatusTask"
+            android:id="@+id/buttonStatus" android:layout_alignBottom="@+id/btnCancelTask"
+            android:layout_toRightOf="@+id/btnCancelTask" android:layout_toEndOf="@+id/btnCancelTask"/>
 </RelativeLayout>
